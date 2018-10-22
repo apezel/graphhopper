@@ -95,7 +95,7 @@ public class IsochroneResource {
             isochrone.setDistanceLimit(distanceInMeter);
         } else {
 
-            long maxSeconds = 80 * 60;
+            long maxSeconds = 120 * 60;
             if (timeLimitInSeconds > maxSeconds)
                 throw new IllegalArgumentException("Specify a limit of less than " + maxSeconds + " seconds");
             if (nBuckets > (timeLimitInSeconds / 60))
