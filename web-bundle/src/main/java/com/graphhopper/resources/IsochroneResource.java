@@ -86,7 +86,7 @@ public class IsochroneResource {
         Isochrone isochrone = new Isochrone(queryGraph, weighting, reverseFlow);
 
         if (distanceInMeter > 0) {
-            double maxMeter = 50 * 1000;
+            double maxMeter = 100 * 1000;
             if (distanceInMeter > maxMeter)
                 throw new IllegalArgumentException("Specify a limit of less than " + maxMeter / 1000f + "km");
             if (nBuckets > (distanceInMeter / 500))

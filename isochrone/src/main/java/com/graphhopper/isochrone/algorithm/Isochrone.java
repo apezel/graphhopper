@@ -210,12 +210,14 @@ public class Isochrone extends AbstractRoutingAlgorithm {
                     fromHeap.add(nEdge);
                 } else if (nEdge.weight > tmpWeight) {
                     fromHeap.remove(nEdge);
-                    nEdge.edge = iter.getEdge();
-                    nEdge.weight = tmpWeight;
-                    nEdge.distance = tmpDistance;
-                    nEdge.time = tmpTime;
-                    nEdge.parent = currEdge;
-                    fromHeap.add(nEdge);
+                    if ((exploreType == TIME && tmpTime < this.finishLimit) || tmpDistance < this.finishLimit) {
+                        nEdge.edge = iter.getEdge();
+                        nEdge.weight = tmpWeight;
+                        nEdge.distance = tmpDistance;
+                        nEdge.time = tmpTime;
+                        nEdge.parent = currEdge;
+                        fromHeap.add(nEdge);
+                    }
                 }
             }
 
